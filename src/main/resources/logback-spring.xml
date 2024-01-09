@@ -1,0 +1,63 @@
+<configuration>
+
+    <!-- Debug Appender -->
+    <appender name="DEBUG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/debug.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Trace Appender -->
+    <appender name="TRACE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/trace.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Info Appender -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/info.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Error Appender -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/error.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Specify Loggers -->
+    <logger name="your.package.name" level="DEBUG" additivity="false">
+        <appender-ref ref="DEBUG_FILE"/>
+    </logger>
+
+    <logger name="your.package.name" level="TRACE" additivity="false">
+        <appender-ref ref="TRACE_FILE"/>
+    </logger>
+
+    <logger name="your.package.name" level="INFO" additivity="false">
+        <appender-ref ref="INFO_FILE"/>
+    </logger>
+
+    <logger name="your.package.name" level="ERROR" additivity="false">
+        <appender-ref ref="ERROR_FILE"/>
+    </logger>
+
+    <!-- Set the Root LOGGER -->
+    <root level="DEBUG">
+        <appender-ref ref="ERROR_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
